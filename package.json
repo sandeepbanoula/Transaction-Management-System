@@ -1,0 +1,22 @@
+{
+  "name": "transactionmanagementsystem",
+  "version": "1.0.0",
+  "description": "Transaction mangement system backend made using TypeScript and Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "build": "tsc"
+  },
+  "author": "Sandeep Singh Banoula",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.2"
+  }
+}
