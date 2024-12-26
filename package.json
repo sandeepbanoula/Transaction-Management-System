@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/app.js",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "nodemon --watch \"src/**/*.ts\"  --exec \"npx ts-node\" src/app.ts"
   },
   "author": "Sandeep Singh Banoula",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   },
   "dependencies": {
