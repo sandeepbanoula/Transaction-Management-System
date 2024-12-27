@@ -3,28 +3,32 @@ import mongoose from "mongoose";
 const transactionSchema = new mongoose.Schema({
   name: {
     type: String,
-    require: true,
+    required: true,
   },
   transactionType: {
     type: String,
-    require: true,
+    required: true,
     uppercase: true,
     enum: ["CREDIT", "DEBIT"],
   },
   amount: {
     type: Number,
-    require: true,
+    required: true,
     min: 0,
   },
-  created: {
-    type: Date,
-    default: Date.now,
-    immutable: true,
-  },
-  updated: {
-    type: Date,
-    default: Date.now,
-  },
+//   created: {
+//     type: Date,
+//     default: Date.now,
+//     required: true,
+//     immutable: true,
+//   },
+//   updated: {
+//     type: Date,
+//     default: Date.now,
+//     required: true,
+//   },
+}, {
+    timestamps: true
 });
 
-mongoose.model("Transaction", transactionSchema);
+export const Transaction = mongoose.model("Transaction", transactionSchema);

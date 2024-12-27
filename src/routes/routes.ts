@@ -3,8 +3,8 @@ import { createTransaction, deleteTransaction, readTransaction, updateTransactio
 
 const router = Router()
 
-router.get("/", readTransaction);
 router.post("/", createTransaction);
+router.get("/", readTransaction);
 router.patch("/", updateTransaction);
 router.delete("/", deleteTransaction);
 

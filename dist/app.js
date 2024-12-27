@@ -9,6 +9,7 @@ const routes_1 = __importDefault(require("./routes/routes"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = (0, express_1.default)();
 const port = Number(process.env.PORT) || 3000;
+app.use(express_1.default.json());
 app.use(routes_1.default);
 mongoose_1.default
     .connect(String(process.env.MONGO_DB_URI))
