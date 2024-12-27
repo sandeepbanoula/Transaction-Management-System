@@ -1,5 +1,19 @@
 import { Request, Response } from "express";
 import { Transaction } from "../models/Transaction";
+import tokenGenerator from "../utils/TokenGenerator";
+
+export const auth = async (req: Request, res: Response) => {
+  try {
+    const user = req.body.username;
+    if (!user) {
+      res.status(400).json({ message: "Please provide a username" });
+    } else {
+      res.status(201).json({ AuthenticationToken: await tokenGenerator(user) });
+    }
+  } catch {
+    res.status(500).json({ message: "Cannot generate error!" });
+  }
+};
 
 export const createTransaction = async (req: Request, res: Response) => {
   try {

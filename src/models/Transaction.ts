@@ -16,17 +16,6 @@ const transactionSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
-//   created: {
-//     type: Date,
-//     default: Date.now,
-//     required: true,
-//     immutable: true,
-//   },
-//   updated: {
-//     type: Date,
-//     default: Date.now,
-//     required: true,
-//   },
 }, {
     timestamps: true
 });
