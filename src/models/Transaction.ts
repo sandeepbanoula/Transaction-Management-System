@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+
+// Transaction Schema for MongoDB
 const transactionSchema = new mongoose.Schema({
   name: {
     type: String,

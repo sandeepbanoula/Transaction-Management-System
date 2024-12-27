@@ -1,5 +1,6 @@
 var jwt = require("jsonwebtoken");
 
+// JWT token generator
 const tokenGenerator = async (username: String) => {
   const payload = {
     iat: Math.floor(Date.now() / 1000) - 30,

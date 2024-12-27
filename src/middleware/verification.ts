@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 var jwt = require("jsonwebtoken");
 
+// Middleware to validate request
 export const authenticate = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const auth = req.headers.authorization;

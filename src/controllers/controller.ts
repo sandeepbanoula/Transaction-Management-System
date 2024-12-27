@@ -2,19 +2,23 @@ import { Request, Response } from "express";
 import { Transaction } from "../models/Transaction";
 import tokenGenerator from "../utils/TokenGenerator";
 
+
+// The authentication token generater controller
 export const auth = async (req: Request, res: Response) => {
   try {
     const user = req.body.username;
     if (!user) {
-      res.status(400).json({ message: "Please provide a username" });
+      res.status(400).json({ message: "Please provide a username!" });
     } else {
-      res.status(201).json({ AuthenticationToken: await tokenGenerator(user) });
+      const token = await tokenGenerator(user);
+      res.status(201).json({ AuthenticationToken: token });
     }
   } catch {
     res.status(500).json({ message: "Cannot generate error!" });
   }
 };
 
+// Controller to create transaction
 export const createTransaction = async (req: Request, res: Response) => {
   try {
     const transactionName: String = req.body.name;
@@ -35,6 +39,7 @@ export const createTransaction = async (req: Request, res: Response) => {
   }
 };
 
+// Controller to read one or all transactions
 export const readTransaction = async (req: Request, res: Response) => {
   try {
     var transaction;
@@ -52,6 +57,7 @@ export const readTransaction = async (req: Request, res: Response) => {
   }
 };
 
+// Controller to update transaction
 export const updateTransaction = async (req: Request, res: Response) => {
   try {
     const data = req.body;
@@ -67,6 +73,8 @@ export const updateTransaction = async (req: Request, res: Response) => {
   }
 };
 
+
+// Controller to delete transaction
 export const deleteTransaction = async (req: Request, res: Response) => {
   try {
     const transactionId = req.body.id;

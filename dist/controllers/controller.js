@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTransaction = exports.updateTransaction = exports.readTransaction = exports.createTransaction = exports.auth = void 0;
 const Transaction_1 = require("../models/Transaction");
 const TokenGenerator_1 = __importDefault(require("../utils/TokenGenerator"));
+// The authentication token generater controller
 const auth = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = req.body.username;
@@ -30,6 +31,7 @@ const auth = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.auth = auth;
+// Controller to create transaction
 const createTransaction = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const transactionName = req.body.name;
@@ -49,6 +51,7 @@ const createTransaction = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.createTransaction = createTransaction;
+// Controller to read one or all transactions
 const readTransaction = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         var transaction;
@@ -70,6 +73,7 @@ const readTransaction = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.readTransaction = readTransaction;
+// Controller to update transaction
 const updateTransaction = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;
@@ -89,6 +93,7 @@ const updateTransaction = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.updateTransaction = updateTransaction;
+// Controller to delete transaction
 const deleteTransaction = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const transactionId = req.body.id;

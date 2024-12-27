@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Transaction = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
+// Transaction Schema for MongoDB
 const transactionSchema = new mongoose_1.default.Schema({
     name: {
         type: String,
