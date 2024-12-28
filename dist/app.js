@@ -8,17 +8,13 @@ const express_1 = __importDefault(require("express"));
 const routes_1 = __importDefault(require("./routes/routes"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = (0, express_1.default)();
-const port = Number(process.env.PORT) || 3000;
 app.use(express_1.default.json());
 app.use(routes_1.default); // use routes
-// Connect ro MongoDB database
+// Connect to MongoDB database
 mongoose_1.default
     .connect(String(process.env.MONGO_DB_URI))
     .then(() => {
     console.log("Connected to db.");
-    // Start Server
-    app.listen(port, () => {
-        console.log(`Server is up and running at port ${port}`);
-    });
 })
     .catch((err) => console.log(err));
+exports.default = app;

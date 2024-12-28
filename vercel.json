@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "echo build-started",
   "builds": [
     {
       "src": "dist/app.js",
@@ -9,7 +10,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist"
+      "dest": "dist/app.js"
     }
   ]
 }

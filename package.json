@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node dist/app.js",
     "build": "tsc",
+    "vercel build": "echo 'build-skip'",
     "check": "tsc --project tsconfig.json",
-    "dev": "nodemon --watch \"src/**/*.ts\"  --exec \"npx ts-node\" src/app.ts"
+    "dev": "nodemon --watch \"src/**/*.ts\"  --exec \"npx ts-node\" src/dev.ts"
   },
   "author": "Sandeep Singh Banoula",
   "license": "ISC",
