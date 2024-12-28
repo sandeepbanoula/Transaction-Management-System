@@ -7,10 +7,11 @@ import tokenGenerator from "../utils/TokenGenerator";
 export const auth = async (req: Request, res: Response) => {
   try {
     const user = req.body.username;
-    if (!user) {
-      res.status(400).json({ message: "Please provide a username!" });
+    const pass = req.body.password;
+    if (!user || !pass) {
+      res.status(400).json({ message: "Please provide username and password!" });
     } else {
-      const token = await tokenGenerator(user);
+      const token = await tokenGenerator(user, pass);
       res.status(201).json({ AuthenticationToken: token });
     }
   } catch {

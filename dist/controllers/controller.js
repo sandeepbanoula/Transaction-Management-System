@@ -19,11 +19,12 @@ const TokenGenerator_1 = __importDefault(require("../utils/TokenGenerator"));
 const auth = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = req.body.username;
-        if (!user) {
-            res.status(400).json({ message: "Please provide a username!" });
+        const pass = req.body.password;
+        if (!user || !pass) {
+            res.status(400).json({ message: "Please provide username and password!" });
         }
         else {
-            const token = yield (0, TokenGenerator_1.default)(user);
+            const token = yield (0, TokenGenerator_1.default)(user, pass);
             res.status(201).json({ AuthenticationToken: token });
         }
     }

@@ -11,10 +11,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 var jwt = require("jsonwebtoken");
 // JWT token generator
-const tokenGenerator = (username) => __awaiter(void 0, void 0, void 0, function* () {
+const tokenGenerator = (username, pass) => __awaiter(void 0, void 0, void 0, function* () {
     const payload = {
         iat: Math.floor(Date.now() / 1000) - 30,
         user: username,
+        password: pass
     };
     var token = yield jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
     return token;
