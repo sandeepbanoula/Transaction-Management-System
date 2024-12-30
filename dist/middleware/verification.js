@@ -18,8 +18,11 @@ const authenticate = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         if (!auth) {
             res.status(401).json({ message: "No authorization token provided!" });
         }
+        else if (!auth.startsWith("Bearer")) {
+            res.status(401).json({ message: "Please provide Bearer Token!" });
+        }
         else {
-            const payload = yield jwt.verify(auth, process.env.JWT_SECRET_KEY);
+            const payload = yield jwt.verify(auth.split(" ")[1], process.env.JWT_SECRET_KEY);
             next();
         }
     }

@@ -68,7 +68,7 @@ const readTransaction = (req, res) => __awaiter(void 0, void 0, void 0, function
             res.status(200).json(transaction);
         // no content found
         else
-            res.status(404).json({ message: "No transaction found!" });
+            res.status(404).json({ message: `No transaction found with id: ${transactionId}!` });
     }
     catch (err) {
         res.status(502).json({ message: err.message });
@@ -87,7 +87,7 @@ const updateTransaction = (req, res) => __awaiter(void 0, void 0, void 0, functi
             if (transaction)
                 res.status(200).json(transaction);
             else
-                res.status(404).json({ message: "No transaction found!" });
+                res.status(404).json({ message: `No transaction found with id: ${data.id}!` });
         }
     }
     catch (err) {
@@ -108,7 +108,7 @@ const deleteTransaction = (req, res) => __awaiter(void 0, void 0, void 0, functi
                 res.status(200).json(transaction);
             // no content found
             else
-                res.status(404).json({ message: "No transaction found!" });
+                res.status(404).json({ message: `No transaction found with id: ${transactionId}!` });
         }
     }
     catch (err) {
