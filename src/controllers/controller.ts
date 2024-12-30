@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { Transaction } from "../models/Transaction";
 import tokenGenerator from "../utils/TokenGenerator";
 
-
 // The authentication token generater controller
 export const auth = async (req: Request, res: Response) => {
   try {
@@ -52,7 +51,7 @@ export const readTransaction = async (req: Request, res: Response) => {
     }
     if (transaction) res.status(200).json(transaction);
     // no content found
-    else res.status(404).json({ message: "No transaction found!" });
+    else res.status(404).json({ message: `No transaction found with id: ${transactionId}!` });
   } catch (err) {
     res.status(502).json({ message: err.message });
   }
@@ -67,13 +66,12 @@ export const updateTransaction = async (req: Request, res: Response) => {
     } else {
       const transaction = await Transaction.findByIdAndUpdate(data["id"], data, { returnDocument: "after" });
       if (transaction) res.status(200).json(transaction);
-      else res.status(404).json({ message: "No transaction found!" });
+      else res.status(404).json({ message: `No transaction found with id: ${data.id}!` });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
-
 
 // Controller to delete transaction
 export const deleteTransaction = async (req: Request, res: Response) => {
@@ -85,7 +83,7 @@ export const deleteTransaction = async (req: Request, res: Response) => {
       const transaction = await Transaction.findByIdAndDelete(transactionId);
       if (transaction) res.status(200).json(transaction);
       // no content found
-      else res.status(404).json({ message: "No transaction found!" });
+      else res.status(404).json({ message: `No transaction found with id: ${transactionId}!` });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
